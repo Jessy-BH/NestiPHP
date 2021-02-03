@@ -1,14 +1,8 @@
 <?php
-
-class Recette {
+class Utilisateurs {
 
     public function readAll() {
         //requete
         return ["crepe", "gateau"];
     }
-
-
-
-
-
 }

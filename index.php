@@ -1,4 +1,6 @@
 <?php
+
+include('app/view/connexion.php');
 include('app/config.php');
 $loc = filter_input(INPUT_GET, "loc");
 $action  = filter_input(INPUT_GET, "action");
@@ -6,12 +8,22 @@ $action  = filter_input(INPUT_GET, "action");
 
 //include('app/');
 switch ($loc) {
-  case 'recette':
-    include('app/controller/controlRecette.php');
+  case 'recettes':
+    include('app/controller/ctrl_recettes.php');
     break;
-
+  case 'articles':
+    include('app/controller/ctrl_articles.php');
+    break;
+  case 'utilisateurs':
+    include('app/controller/ctrl_utilisateurs.php');
+    break;
+  case 'stat':
+    include('app/controller/ctrl_stat.php');
+    break;
+  case 'deco':
+    
+    break;
   default:
-    # code...
     break;
 }
 include('app/view/template.php');
