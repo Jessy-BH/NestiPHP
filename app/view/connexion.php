@@ -14,7 +14,7 @@
 
 <body>
     <div id="login">
-        <img src="../../public/images/logo-nesti.png" alt="logo nesti" class="p-5">
+        <img src="../../public/images/logo-nesti.png" alt="logo nesti" class="logo">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
