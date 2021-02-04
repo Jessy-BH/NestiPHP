@@ -26,4 +26,4 @@ switch ($loc) {
   default:
     break;
 }
-include('app/view/template.php');
+include('app/view/common/template.php');
