@@ -1,27 +1,43 @@
-<nav class="navbar bg-info navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Nesti</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-        <li class = "nav-item <?= ( $loc =='recettes')?'active':''; ?> px-lg-4" >
-            <a class="nav-link text-uppercase text-expanded" href="http://<?=BASE_URL?>index.php?loc=recettes">Recettes</a>
-          </li>
-          <li class = "nav-item <?= ( $loc =='articles')?'active':''; ?> px-lg-4" >
-            <a class="nav-link text-uppercase text-expanded" href="http://<?=BASE_URL?>index.php?loc=articles">Articles</a>
-          </li>
-          <li class = "nav-item <?= ( $loc =='utilisateurs')?'active':''; ?> px-lg-4" >
-            <a class="nav-link text-uppercase text-expanded" href="http://<?=BASE_URL?>index.php?loc=utilisateurs">Utilisateurs</a>
-          </li>
-          <li class = "nav-item <?= ( $loc =='stats')?'active':''; ?> px-lg-4" >
-            <a class="nav-link text-uppercase text-expanded" href="http://<?=BASE_URL?>index.php?loc=stats">Statistiques</a>
-          </li>
-          <li class = "nav-item <?= ( $loc =='deco')?'active':''; ?> px-lg-4" >
-            <a class="nav-link text-uppercase text-expanded" href="http://<?=BASE_URL?>index.php?loc=deco">Déconnexion</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-xl p-0" id="mainNav">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav mr-auto navnesti justify-content-around">
+      <li class="nav-item m-xl-3 <?= ($loc == 'recipes') ? 'active' : ''; ?>">
+        <a class="nav-link text-light" href="<?= BASE_URL ?>recipes">
+          <i class="fas fa-clipboard-list mr-2"></i>
+          Recettes</a>
+      </li>
+      <li class="nav-item m-xl-3 <?= ($loc == 'articles') ? 'active' : ''; ?>">
+        <a class="nav-link text-light" href="<?= BASE_URL ?>articles">
+          <i class="fas fa-utensils mr-2"></i>
+          Articles</a>
+      </li>
+      <li class="nav-item m-xl-3 <?= ($loc == 'users') ? 'active' : ''; ?>">
+        <a class="nav-link text-light" href="<?= BASE_URL ?>users">
+          <i class="fas fa-user mr-2"></i>
+          Utilisateurs</a>
+      </li>
+      <li class="nav-item m-xl-3 <?= ($loc == 'statistics') ? 'active' : ''; ?>">
+        <a class="nav-link text-light" href="<?= BASE_URL ?>statistics">
+          <i class="fas fa-chart-bar mr-2"></i>
+          Statistiques
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline logOut my-2 my-lg-0 justify-content-around">
+      <a class="nav-link" href="">
+        <i class="fas fa-user mr-2 text-dark"></i>
+       <?php print_r($_SESSION["firstname"]." ".$_SESSION["lastname"]) ?>
+      </a>
+      <a class="nav-link text-dark"  onclick="deco()" value="Deconnection" href="<?= BASE_URL ?>deconnection">
+        <i class="fas fa-sign-out-alt mr-2 text-dark" <?= ( $loc =='deco')?'active':''; ?>></i>
+        Déconnexion</a>
+        
+    </form>
+  </div>
+  
+</nav>

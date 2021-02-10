@@ -3,7 +3,7 @@ class Database
 {
 
     // information of the database
-    private $dbName = 'nestiphp';
+    private $dbName = 'nesti_admin';
     private $dbHost = 'localhost';
     private $dbUsername = 'root';
     private $dbUserPassword = '';
@@ -28,8 +28,13 @@ class Database
         return $this->cont;
     }
 
-    public function disconnect()
+    public function deco()
+
     {
         $this->cont = null;
+        session_unset();
+        session_destroy();
+        header('location:' . BASE_URL . "index.php?loc=connection");
+        die();
     }
 }

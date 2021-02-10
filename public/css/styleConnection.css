@@ -1,4 +1,4 @@
-body {
+#login {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -21,6 +21,10 @@ body {
 
 .logo {
     width: 15%;
-    height: 15%;
+   
     padding: 2%;
 }
+
+
+
+ 

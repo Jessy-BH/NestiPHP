@@ -1,29 +1,42 @@
 <?php
 
-include('app/view/connexion.php');
-include('app/config.php');
-$loc = filter_input(INPUT_GET, "loc");
-$action  = filter_input(INPUT_GET, "action");
-//controlleur de session >>
+session_start();
+include 'app/config.php';
+include 'app/model/Database.php';
+require_once __DIR__ . "/app/tools/SiteUtil.php";
+$loc    = filter_input(INPUT_GET, "loc", FILTER_SANITIZE_STRING);
+$action = filter_input(INPUT_GET, "action");
 
-//include('app/');
+if($loc==null){
+  $loc="connection";
+}
+
 switch ($loc) {
-  case 'recettes':
-    include('app/controller/ctrl_recettes.php');
+
+  case 'connection':
+    include(PATH_CTRL . "/ctrlConnection.php");
+    break;
+  case 'recipes':
+    include(PATH_CTRL . '/ctrlRecipes.php');
     break;
   case 'articles':
-    include('app/controller/ctrl_articles.php');
+    include(PATH_CTRL . '/ctrlArticles.php');
     break;
-  case 'utilisateurs':
-    include('app/controller/ctrl_utilisateurs.php');
+  case 'users':
+    include(PATH_CTRL . '/ctrlUsers.php');
     break;
-  case 'stat':
-    include('app/controller/ctrl_stat.php');
+  case 'statistics':
+    include(PATH_CTRL . '/ctrlStatistics.php');
     break;
-  case 'deco':
-    
+  case 'deconnection':
+    header('location:' . BASE_URL . "index.php?loc=deconnection");
+    $a = new Database();
+    $a->deco();
     break;
   default:
+    echo ("404");
+
     break;
 }
-include('app/view/common/template.php');
+
+include 'app/view/common/template.php';
